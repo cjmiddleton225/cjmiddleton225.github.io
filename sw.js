@@ -1,9 +1,9 @@
 var CACHE_NAME = 'my-site-cache-v1';
 var urlsToCache = [
-  '/old/',
-  '/old/GA.html',
-  '/old/GA.js',
-  '/old/p5.js',
+  '/',
+  '/GA.html',
+  '/GA.js',
+  '/p5.js',
 ];
 console.log('adding install listener')
 self.addEventListener('install', (e) => {
