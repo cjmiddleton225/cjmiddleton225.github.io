@@ -3,37 +3,67 @@ body {
 }
   
 h1 {
-    
+    margin:auto;
+    font-size: 5%;
 }
 
 .headerout {
     background-color: lightblue;
-    padding-top: 80px;
+    padding-top: 5%;
     position: fixed;
     width:100%;
     top: 0;
 }
 .headerin {
+    margin:auto;
     position: fixed;
     color: white;
     text-align: center;
     background-color: crimson;
     border-radius: 10px;
-    width: 100%;
-    top:5px;
+    width: 98%;
+    height: auto;
+    top:1%;
 }
 
+
 .polaroid{
-    padding: 20px;
-    padding-bottom: 80px;
+    padding: 1.5%;
+    padding-bottom: 6%;
+    margin: 0.5%;
     background-color: white;
-    width: 24%;
+    width: 27%;
+    border-radius: 1%;
+}
+.polaroid:hover{
+    width:28%;
+    margin:0%;
 }
 
 .content {
     padding-top: 80px;
 }
 
+@media only screen and (orientation: portrait){
+    .polaroid{
+        padding: 1.5%;
+    padding-bottom: 9%;
+    margin: 1%;
+    background-color: white;
+    width: 40%;
+    border-radius: 1%;
+    }
+    .polaroid:hover{
+        width:41%;
+        margin:0.5%;
+    }
+}
+
+.centred {
+    text-align: center;
+}
+
 .polaroidGroup {
     text-align: center;
+    width: 100%
 }
