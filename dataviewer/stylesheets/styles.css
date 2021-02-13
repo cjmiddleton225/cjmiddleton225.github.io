@@ -1,0 +1,85 @@
+:root{
+    --sidebar-width:19%;
+    --mainarea-width:calc(100% - var(--sidebar-width) - 4 * 0.5vh);
+    --topbar-height:6%;
+    --bottombar-height:6%;
+    --mainarea-height:calc(100% - var(--topbar-height) - var(--bottombar-height) - 0.5vh * 8);
+    --sidebar-height:var(--mainarea-height);
+    
+}
+
+.inline{
+    display: inline-block;
+}
+.app-area{
+    width: 98vw;
+    height: 97vh;
+    background-color: white;
+    line-height: 0;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.background-bar {
+    background-color: grey;
+    border-radius: 1vh;
+    margin: 0.5vh;
+    padding: 0;
+}
+
+.top-bar{
+    width: 100%;
+    height: var(--topbar-height);
+}
+
+.bottom-bar{
+    width: 100%;
+    height: var(--bottombar-height);
+    display: flex;
+    align-items: center;
+}
+
+.side-bar{
+    width: var(--sidebar-width);
+    height: var(--sidebar-height);
+    display: flex;
+    /*justify-content:center;*/
+    flex-direction: column;
+    /*flex-wrap:wrap;*/
+    overflow-y: scroll;
+}
+
+.main-area{
+    width: var(--mainarea-width);
+    height: var(--mainarea-height);
+    float: right;
+    display: flex;
+}
+
+.status-bar{
+    background-color: white;
+    
+    overflow: hidden;
+    margin: 0.6vh;
+    border-radius: 1vh;
+    height: 80%;
+    width: 100%;
+}
+
+.app-text{
+    background-color: white;
+    border-radius: 1vh;
+    margin: 0.6vh;
+    padding: 2vh;
+    height: 80%;
+    width: 100%;
+    align-self:stretch;
+}
+
+.side-bar-button{
+    width: 95%;
+    height: 18%;
+    border-radius: 1vh;
+    align-self: center;
+    margin-top: 4%;
+}
