@@ -1,0 +1,183 @@
+<div class="page">
+					<h4>simplevariables.sh</h4>
+					
+					<ol>
+						<li>#!/bin/bash</li>
+						<li><span class="comment"># A simple variable example</span></li>
+						<li></li>
+						<li>myvariable=Hello</li>
+						<li></li>
+						<li>anothervar=Fred</li>
+						<li></li>
+						<li>echo $myvariable $anothervar</li>
+						<li>echo </li>
+						<li></li>
+						<li>sampledir=/etc</li>
+						<li></li>
+						<li>ls $sampledir</li>
+					</ol>
+				</div>
+
+body {
+	/*padding-top: 71px;*/
+	padding-bottom: 0px;
+}
+
+h1:after {
+	content: ' of 8';
+	color: #666;
+	font-size: 20px;
+	font-weight: 100;
+}
+
+h1.introduction:after {
+	content: '';
+}
+
+.jumbotron {
+	background-color: #EDC92F;
+	background: url('../../img/round/hammer_128.png') no-repeat #EDC92F;
+	background-position: 103% 119%;
+}
+
+#sidebox.affix {
+	top: 70px;
+}
+
+
+/* Terminal */
+
+.terminal {
+	/*background-color: #dfdfdf;*/
+	background-color: #f9eac5;
+	-webkit-box-shadow:  3px 3px 15px 2px rgba(150, 150, 150, 0.8), 40px 0 0 #FBFBFC inset, 41px 0 0 #ECECF0 inset;;
+	box-shadow:  3px 3px 15px 2px rgba(150, 150, 150, 0.8), 40px 0 0 #FBFBFC inset, 41px 0 0 #ECECF0 inset;;
+	position: relative;
+	min-height: 60px;
+	border: 1px solid #000;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+	padding-bottom: 30px;
+	font-family: Monaco,Menlo,Consolas,"Courier New",monospace;
+	margin: 20px 0px 20px 0px;
+}
+
+.terminal:before {
+	content: 'Terminal';
+	text-align: center;
+	/*background-color: #888;*/
+	background-color: #b3a15e;
+	display: block;
+}
+
+.terminal:after {
+	content: '';
+	text-align: right;
+	background-color: #888;
+	display: block;
+	position: absolute;
+	bottom: 0px;
+	width: 100%;
+	height: 4px;
+}
+
+.prompt {
+	font-weight: bold;
+}
+
+.terminal .prompt:before {
+	content: 'user@bash: ';
+}
+
+.terminal ol {
+	margin: 0 0 0 33px;
+	padding: 0px;
+	padding-left: 7px;
+}
+
+.terminal li {
+	line-height: 20px;
+	padding-left: 8px;
+}
+
+
+/* Script File */
+
+.page {
+	background-color: #fff;
+	-webkit-box-shadow:  3px 3px 15px 2px rgba(150, 150, 150, 0.8), 40px 0 0 #FBFBFC inset, 41px 0 0 #ECECF0 inset;
+	box-shadow:  3px 3px 15px 2px rgba(150, 150, 150, 0.8), 40px 0 0 #FBFBFC inset, 41px 0 0 #ECECF0 inset;
+	position: relative;
+	min-height: 60px;
+	border: 1px solid #000;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+	padding-bottom: 30px;
+	font-family: Monaco,Menlo,Consolas,"Courier New",monospace;
+	margin: 20px 0px 20px 0px;
+}
+
+.page:after {
+	content: '';
+	text-align: right;
+	background: #ccc;
+	background: linear-gradient(to bottom, #fff 0%, #ccc 100%);
+	display: block;
+	position: absolute;
+	bottom: 0px;
+	width: 100%;
+	height: 15px;
+	border-radius: 0 0 5px 5px;
+}
+
+.page h4 {
+	text-align: center;
+	background-color: #5ea1b3;
+	display: block;
+	font-weight: normal;
+	font-size: 14px;
+	line-height: 22px;
+	margin-top: 10px;
+}
+
+.page ol {
+	margin: 0 0 0 33px;
+	padding: 0px;
+	padding-left: 7px;
+}
+
+.page li {
+	line-height: 20px;
+	padding-left: 8px;
+	border-bottom: 1px solid #d8f2fb;
+}
+
+.tab1, .tab2, .tab3, .tab4 {
+	display: inline-block;
+}
+
+.tab1 {
+	width: 20px;
+}
+
+.tab2 {
+	width: 40px;
+}
+
+.tab3 {
+	width: 60px;
+}
+
+.tab4 {
+	width: 80px;
+}
+
+.comment {
+	color: #468847;
+	font-style: italic;
+}
+
+.string {
+	color: #a94442;
+}
+
