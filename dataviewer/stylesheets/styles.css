@@ -93,3 +93,67 @@
     border-style: solid;
     border-radius: 1vh;
 }
+
+.CSV-preview {
+	background-color: #fff;
+	//-webkit-box-shadow:  3px 3px 15px 2px rgba(150, 150, 150, 0.8), 40px 0 0 #FBFBFC inset, 41px 0 0 #ECECF0 inset;
+	box-shadow:  3px 3px 15px 2px rgba(150, 150, 150, 0.8), 0ch 0 0 #FBFBFC inset, 4ch 0 0 #ECECF0 inset;
+	//position: relative;
+	//min-height: 60px;
+	//border: 1px solid #000;
+	//-webkit-border-radius: 5px;
+	border-radius: 1vh;
+	//padding-bottom: 30px;
+	font-family: Monaco,Menlo,Consolas,"Courier New",monospace;
+	margin: 0px 0px 0px 0px;
+	overflow-x: scroll;
+    overflow-y: scroll;
+    font-family: monospace;
+    width: 100%;
+    height: 10ch;
+    border-color: grey;
+    border-style: solid;
+    border-radius: 1vh;
+}
+/*
+.CSV-preview:after {
+	content: '';
+	text-align: right;
+	background: #ccc;
+	background: linear-gradient(to bottom, #fff 0%, #ccc 100%);
+	display: block;
+	position: absolute;
+	bottom: 0px;
+	width: 100%;
+	height: 15px;
+	border-radius: 0 0 5px 5px;
+}*/
+
+.CSV-preview h4 {
+	text-align: center;
+	background-color: #5ea1b3;
+	display: block;
+	font-weight: normal;
+	font-size: 14px;
+	line-height: 22px;
+	margin-top: 10px;
+}
+
+.CSV-preview ol {
+	margin: 0 0 0 33px;
+	padding: 0px;
+	padding-left: 7px;
+}
+
+.CSV-preview li {
+	line-height: 1.5ch;
+	padding-left: 1ch;
+	border-bottom: .25vh solid #d8f2fb;
+}
+
+.CSV-preview li#skipped{
+	line-height: 1.5ch;
+	padding-left: 1ch;
+	border-bottom: .25vh solid #d8f2fb;
+	color: grey;
+}

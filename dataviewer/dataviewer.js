@@ -17,8 +17,10 @@ function LoadDataApp() {
     loadCSVButton.innerText="Submit";
     
     let previewBox = document.createElement("div");
-    previewBox.classList.add("code");
-    previewBox.innerHTML='<pre id="CSVRawText" >No data selected.</pre>';
+    previewBox.classList.add("CSV-preview");
+    previewBox.id="CSVRawText";
+    previewBox.innerText="     No data selected";
+    //previewBox.innerHTML='<pre id="CSVRawText" >No data selected.</pre>';
     
     appText.appendChild(inputText);
     appText.appendChild(input);
@@ -39,6 +41,24 @@ function LoadDataApp() {
   }
   
   function updateCSVPreview(lines){
-    document.getElementById('CSVRawText').textContent = CSVData.rawData;
+    const CSVprev = document.getElementById('CSVRawText');
+    CSVprev.replaceChildren();
+    lines > CSVData.dataAsLines.length ? CSVData.dataAsLines.length : lines;
+    //CSVprev.textContent = CSVData.rawData;
+    let list = document.createElement("ol");
+    let curLine;
+    let skipLines=5;
+    for (curLine=0; curLine<lines; curLine++){
+      let li = document.createElement("li");
+      if (curLine<skipLines){
+        li.value='-';
+        li.id="skipped";
+      } else {
+       li.value=curLine-skipLines+1;
+      }
+
+      li.innerText=CSVData.dataAsLines[curLine];
+      list.appendChild(li);
+    }
+    CSVprev.appendChild(list);
   }
-  

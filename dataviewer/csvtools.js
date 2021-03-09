@@ -2,6 +2,7 @@ class CSVReader{
   filename;
   rawData;
   fileLoaded = false;
+  dataAsLines
   
   LoadData(filename){
     this.filename=filename;
@@ -24,5 +25,6 @@ class CSVReader{
         while (this.fileLoaded === false) {
           await sleep(100);
         }
+        this.dataAsLines=this.rawData.split('\n');
     }
 }
