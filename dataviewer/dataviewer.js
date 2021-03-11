@@ -4,7 +4,7 @@ function LoadDataApp() {
     let appText = document.getElementById("appText");
     appText.replaceChildren(); // clears the window
     let inputText = document.createElement("p");
-    inputText.appendChild(document.createTextNode("Select local CSV file:"));
+    inputText.appendChild(document.createTextNode("Select local text file:"));
     let input=document.createElement("input");
     input.id="csv";
     input.type="file";
@@ -15,17 +15,41 @@ function LoadDataApp() {
                 loadCSV_buttonClick();
             };
     loadCSVButton.innerText="Submit";
+    let importSettingsLine = document.createElement("pre");
+    //<input type="text" id="fname" name="fname">
+    let skipLinesTextBox=document.createElement("input");
+    skipLinesTextBox.type="number";
+    skipLinesTextBox.defaultValue='0';
+    skipLinesTextBox.min=0;
+    skipLinesTextBox.max=1000;
+    
+    let delimiterTextBox=document.createElement("input");
+    delimiterTextBox.type="text";
+    delimiterTextBox.defaultValue=',';
+    delimiterTextBox.size=5;
+    
+    let areHeadersCheckBox=document.createElement("input")
+    areHeadersCheckBox.type="checkbox";
+    areHeadersCheckBox.defaultChecked=true;
+    
+    importSettingsLine.append("Lines to skip: ");
+    importSettingsLine.appendChild(skipLinesTextBox);
+    importSettingsLine.append("  Delimiter: ");
+    importSettingsLine.appendChild(delimiterTextBox);
+    importSettingsLine.append("  Are headers? ")
+    importSettingsLine.appendChild(areHeadersCheckBox);
     
     let previewBox = document.createElement("div");
     previewBox.classList.add("CSV-preview");
     previewBox.id="CSVRawText";
-    previewBox.innerText="     No data selected";
+    previewBox.innerText="No data selected - Load file, or drag and drop!";
     //previewBox.innerHTML='<pre id="CSVRawText" >No data selected.</pre>';
     
     appText.appendChild(inputText);
     appText.appendChild(input);
     loadCSVDiv.appendChild(loadCSVButton);
     appText.appendChild(loadCSVDiv);
+    appText.appendChild(importSettingsLine);
     appText.appendChild(previewBox);
     
   }
