@@ -1,4 +1,6 @@
-let CSVData = new CSVReader();
+const CSVData = new CSVReader();
+let importSettings = {};
+importSettings.previewLines=10;
 
 function LoadDataApp() {
     let appText = document.getElementById("appText");
@@ -31,6 +33,9 @@ function LoadDataApp() {
     let areHeadersCheckBox=document.createElement("input")
     areHeadersCheckBox.type="checkbox";
     areHeadersCheckBox.defaultChecked=true;
+    importSettings.areHeadersCheckBox=areHeadersCheckBox;
+    areHeadersCheckBox.addEventListener("change", importSettingsUpdated);
+    //areHeadersCheckBox.onchange=importSettingsUpdated();
     
     importSettingsLine.append("Lines to skip: ");
     importSettingsLine.appendChild(skipLinesTextBox);
@@ -61,27 +66,41 @@ function LoadDataApp() {
   async function loadCSV_buttonClick(){
     let fileInput = document.getElementById("csv");
     await CSVData.ReadCSV(fileInput.files[0]);
-    updateCSVPreview(10);
+    updateCSVPreview(importSettings.previewLines);
+  }
+  
+  function importSettingsUpdated(){
+    // get all settings
+    CSVData.areHeaders=importSettings.areHeadersCheckBox.checked;
+    updateCSVPreview(importSettings.previewLines);
   }
   
   function updateCSVPreview(lines){
+    if (CSVData.fileLoaded==false){
+      return;
+    }
     const CSVprev = document.getElementById('CSVRawText');
     CSVprev.replaceChildren();
     lines > CSVData.dataAsLines.length ? CSVData.dataAsLines.length : lines;
     //CSVprev.textContent = CSVData.rawData;
     let list = document.createElement("ol");
     let curLine;
-    let skipLines=5;
     for (curLine=0; curLine<lines; curLine++){
       let li = document.createElement("li");
-      if (curLine<skipLines){
+      if (curLine<CSVData.skipLines){
         li.value='-';
         li.id="skipped";
+        li.innerHTML=CSVData.dataAsLines[curLine];
       } else {
-       li.value=curLine-skipLines+1;
+        if (CSVData.areHeaders && curLine==CSVData.skipLines){
+        li.id="header";
+        }
+       li.value=curLine-CSVData.skipLines+1;
+      let re = new RegExp(CSVData.delimiter, "g")
+       li.innerHTML=CSVData.dataAsLines[curLine].replace(re,"<mark>,</mark>");
       }
-
-      li.innerText=CSVData.dataAsLines[curLine];
+      
+;
       list.appendChild(li);
     }
     CSVprev.appendChild(list);

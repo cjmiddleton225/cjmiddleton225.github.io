@@ -2,7 +2,10 @@ class CSVReader{
   filename;
   rawData;
   fileLoaded = false;
-  dataAsLines
+  dataAsLines;
+  skipLines=0;
+  delimiter=',';
+  areHeaders=true;
   
   LoadData(filename){
     this.filename=filename;

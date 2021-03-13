@@ -157,3 +157,10 @@
 	border-bottom: .25vh solid #d8f2fb;
 	color: grey;
 }
+
+.CSV-preview li#header{
+  line-height: 1.5ch;
+	padding-left: 1ch;
+	border-bottom: .25vh solid #d8f2fb;
+	background: lightblue;
+}
