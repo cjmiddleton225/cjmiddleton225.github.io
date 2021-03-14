@@ -1,4 +1,4 @@
-const CSVData = new CSVReader();
+let CSVData = new CSVReader();
 let importSettings = {};
 importSettings.previewLines=10;
 
@@ -21,14 +21,18 @@ function LoadDataApp() {
     //<input type="text" id="fname" name="fname">
     let skipLinesTextBox=document.createElement("input");
     skipLinesTextBox.type="number";
-    skipLinesTextBox.defaultValue='0';
+    skipLinesTextBox.defaultValue=CSVData.skipLines.toString();
     skipLinesTextBox.min=0;
     skipLinesTextBox.max=1000;
+    importSettings.skipLinesTextBox=skipLinesTextBox;
+    skipLinesTextBox.addEventListener("change", importSettingsUpdated);
     
     let delimiterTextBox=document.createElement("input");
     delimiterTextBox.type="text";
-    delimiterTextBox.defaultValue=',';
+    delimiterTextBox.defaultValue=CSVData.delimiter;
     delimiterTextBox.size=5;
+    importSettings.delimiterTextBox=delimiterTextBox;
+    delimiterTextBox.addEventListener("change", importSettingsUpdated);
     
     let areHeadersCheckBox=document.createElement("input")
     areHeadersCheckBox.type="checkbox";
@@ -72,6 +76,8 @@ function LoadDataApp() {
   function importSettingsUpdated(){
     // get all settings
     CSVData.areHeaders=importSettings.areHeadersCheckBox.checked;
+    CSVData.skipLines=parseInt(importSettings.skipLinesTextBox.value);
+    CSVData.delimiter=importSettings.delimiterTextBox.value;
     updateCSVPreview(importSettings.previewLines);
   }
   
@@ -97,7 +103,8 @@ function LoadDataApp() {
         }
        li.value=curLine-CSVData.skipLines+1;
       let re = new RegExp(CSVData.delimiter, "g")
-       li.innerHTML=CSVData.dataAsLines[curLine].replace(re,"<mark>,</mark>");
+      let highlightedDelimiter = "<mark>"+importSettings.delimiterTextBox.value+"</mark>";
+       li.innerHTML=CSVData.dataAsLines[curLine].replace(re,highlightedDelimiter);
       }
       
 ;
