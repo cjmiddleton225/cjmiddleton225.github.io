@@ -164,3 +164,19 @@
 	border-bottom: .25vh solid #d8f2fb;
 	background: lightblue;
 }
+
+.data-table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.data-table td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+.data-table tr:nth-child(even) {
+  background-color: #dddddd;
+}

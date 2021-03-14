@@ -34,7 +34,7 @@ function LoadDataApp() {
     importSettings.delimiterTextBox=delimiterTextBox;
     delimiterTextBox.addEventListener("change", importSettingsUpdated);
     
-    let areHeadersCheckBox=document.createElement("input")
+    let areHeadersCheckBox=document.createElement("input");
     areHeadersCheckBox.type="checkbox";
     areHeadersCheckBox.defaultChecked=true;
     importSettings.areHeadersCheckBox=areHeadersCheckBox;
@@ -45,7 +45,7 @@ function LoadDataApp() {
     importSettingsLine.appendChild(skipLinesTextBox);
     importSettingsLine.append("  Delimiter: ");
     importSettingsLine.appendChild(delimiterTextBox);
-    importSettingsLine.append("  Are headers? ")
+    importSettingsLine.append("  Are headers? ");
     importSettingsLine.appendChild(areHeadersCheckBox);
     
     let previewBox = document.createElement("div");
@@ -61,7 +61,25 @@ function LoadDataApp() {
     appText.appendChild(importSettingsLine);
     appText.appendChild(previewBox);
     
-  }
+    let CSVTable={};
+    CSVTable.row=[];
+    CSVTable.div = document.createElement("div");
+    CSVTable.div.classList.add("data-table");
+    CSVTable.div.append("Imported data:");
+    CSVTable.table = document.createElement("table");
+    CSVTable.header = document.createElement("tr");
+    CSVTable.header.innerHTML = "<th>Data 1</th> <th>Data 2</th> <th>Data 3</th>";
+    CSVTable.row[0] = document.createElement("tr");
+    CSVTable.row[0].innerHTML = "<td>-</td> <td>-</td> <td>-</td>";
+    CSVTable.div.appendChild(CSVTable.table);
+    CSVTable.table.appendChild(CSVTable.header);
+    CSVTable.table.appendChild(CSVTable.row[0]);
+    
+    appText.appendChild(CSVTable.div);
+    
+    
+}
+  
   function myFunction2() {
     let a = document.getElementById("sideBarButton");
     document.getElementById("appText").innerHTML = "And cool!";
@@ -82,7 +100,7 @@ function LoadDataApp() {
   }
   
   function updateCSVPreview(lines){
-    if (CSVData.fileLoaded==false){
+    if (CSVData.fileLoaded===false){
       return;
     }
     const CSVprev = document.getElementById('CSVRawText');
@@ -102,13 +120,16 @@ function LoadDataApp() {
         li.id="header";
         }
        li.value=curLine-CSVData.skipLines+1;
-      let re = new RegExp(CSVData.delimiter, "g")
+      let re = new RegExp(CSVData.delimiter, "g");
       let highlightedDelimiter = "<mark>"+importSettings.delimiterTextBox.value+"</mark>";
        li.innerHTML=CSVData.dataAsLines[curLine].replace(re,highlightedDelimiter);
       }
-      
-;
       list.appendChild(li);
-    }
+    
     CSVprev.appendChild(list);
+    }
   }
+  
+ // function updateCSVtable(line){
+    
+//  }
