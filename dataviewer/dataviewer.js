@@ -65,7 +65,9 @@ function LoadDataApp() {
     CSVTable.row=[];
     CSVTable.div = document.createElement("div");
     CSVTable.div.classList.add("data-table");
-    CSVTable.div.append("Imported data:");
+    CSVTable.h2 = document.createElement("h2");
+    CSVTable.h2.innerText="Imported data: ";
+    CSVTable.div.appendChild(CSVTable.h2);
     CSVTable.table = document.createElement("table");
     CSVTable.header = document.createElement("tr");
     CSVTable.header.innerHTML = "<th>Data 1</th> <th>Data 2</th> <th>Data 3</th>";

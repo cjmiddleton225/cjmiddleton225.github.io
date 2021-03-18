@@ -70,9 +70,9 @@
     border-radius: 1vh;
     margin: 0.6vh;
     padding: 2vh;
-    height: 80%;
     width: 100%;
     align-self:stretch;
+    overflow-y: scroll;
 }
 
 .side-bar-button{
@@ -107,13 +107,13 @@
 	font-family: Monaco,Menlo,Consolas,"Courier New",monospace;
 	margin: 0px 0px 0px 0px;
 	overflow-x: scroll;
-    overflow-y: scroll;
-    font-family: monospace;
-    width: 100%;
-    height: 10ch;
-    border-color: grey;
-    border-style: solid;
-    border-radius: 1vh;
+  overflow-y: scroll;
+  font-family: monospace;
+  width: 100%;
+  height: 10ch;
+  border-color: grey;
+  border-style: solid;
+  border-radius: 1vh;
 }
 /*
 .CSV-preview:after {
@@ -165,10 +165,16 @@
 	background: lightblue;
 }
 
+.data-table h2{
+  padding-top: 1ch;
+  font-size: 1em;
+}
+
 .data-table {
   font-family: arial, sans-serif;
   border-collapse: collapse;
   width: 100%;
+  overflow-x: scroll;
 }
 
 .data-table td, th {
